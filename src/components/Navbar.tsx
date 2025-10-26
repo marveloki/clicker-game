@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import HoneyJar from "../assets/honey-jar.png";
+import BaseLogo from "../assets/Logo-base.png";
 import styled from "styled-components";
 import { colorPalette } from "../styles";
 import { Link } from "react-router-dom";
@@ -16,8 +16,8 @@ export const Navbar = ({ children }: Props) => {
       <Nav>
         <Link to="/">
           <LogoContainer>
-            <LogoImage alt="logo" src={HoneyJar} />
-            <LogoTxt>Honey Clicker</LogoTxt>
+            <LogoImage alt="logo" src={BaseLogo} />
+            <LogoTxt>Base Clicker</LogoTxt>
           </LogoContainer>
         </Link>
         <AboutLink to="/about">About</AboutLink>

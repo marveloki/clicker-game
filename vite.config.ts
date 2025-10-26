@@ -20,9 +20,9 @@ export default defineConfig({
         display: "standalone",
         scope: "/",
         start_url: "/",
-        short_name: "Honey Clicker",
-        description: "Honey Clicker Game",
-        name: "Honey Clicker",
+        short_name: "Base Clicker",
+        description: "Base Clicker - Blockchain Mining Game",
+        name: "Base Clicker",
         icons: [
           {
             src: "logo192.png",
@@ -52,7 +52,7 @@ export default defineConfig({
             url: "/",
             icons: [
               {
-                src: "honey-jar96.png",
+                src: "logo192.png",
                 sizes: "96x96",
               },
             ],

@@ -7,7 +7,7 @@ import { Coffee, GitHub } from "@mui/icons-material";
 import { Button, Stack } from "@mui/material";
 import { achievements, items } from "../constants";
 import PLFlag from "../assets/poland-flag-icon.svg";
-import HappyBee from "../assets/HappyBee.png";
+import BaseLogo from "../assets/Logo-base.png";
 
 export const About = () => {
   // Calculate the number of achievements and items
@@ -15,7 +15,7 @@ export const About = () => {
   const itemsCount = Object.keys(items).length;
   // Set the document title
   useEffect(() => {
-    document.title = "About - Honey Clicker";
+    document.title = "About - Base Clicker";
   }, []);
 
   // Define the technology stack used to build the game
@@ -37,19 +37,19 @@ export const About = () => {
         }}
       >
         <AboutContainer>
-          <AboutTitle>About Honey Clicker</AboutTitle>
+          <AboutTitle>About Base Clicker</AboutTitle>
           <AboutText>
-            <b>Welcome to Honey Clicker!</b> This is a simple yet addictive
-            clicker game where you can earn points by clicking on a honey jar.
+            <b>Welcome to Base Clicker!</b> This is a blockchain-themed
+            clicker game where you can earn $BClick tokens by clicking on the Base logo.
             You can use your points to upgrade your clicking power, earn more
             points per second, and unlock achievements.
           </AboutText>
           <AboutText>
-            <b>To get started,</b> simply click on the honey jar to earn points.
+            <b>To get started,</b> simply click on the Base logo to earn $BClick tokens.
             You can also use the volume slider to adjust the game's sound
             effects. Don't forget to check out the stats info to see how many
             points you've earned and your progress towards unlocking
-            achievements. To customize your Honey Clicker profile, you can
+            achievements. To customize your Base Clicker profile, you can
             access the user profile settings by clicking on the profile icon at
             the top right corner of the game's screen. From there, you can
             change your username and profile picture by clicking on the
@@ -58,15 +58,15 @@ export const About = () => {
           <AboutText>
             <b>As you play the game,</b> you will unlock various achievements.
             There are currently <b>{achievementsCount} achievements</b>{" "}
-            available to unlock in Honey Clicker. These include achievements for
-            producing honey, clicking the button, and more. You can also visit
+            available to unlock in Base Clicker. These include achievements for
+            mining tokens, clicking the logo, and more. You can also visit
             the shop to purchase upgrades that will increase your points per
             second and multiplier. They are <b>{itemsCount} unique items</b> to
             buy.
           </AboutText>
 
           <AboutText>
-            <b>Honey Clicker is a Progressive Web App. </b>
+            <b>Base Clicker is a Progressive Web App. </b>
             Add this app to your home screen for quick and easy access to the
             game. This game works offline, so you can play it anytime, anywhere
             without an internet connection.
@@ -115,7 +115,7 @@ export const About = () => {
             </Button>
           </Stack>
         </AboutContainer>
-        <BeeImg src={HappyBee} alt="happy bee" />
+        <BaseImg src={BaseLogo} alt="base logo" />
       </div>
     </>
   );
@@ -197,7 +197,7 @@ const bounce = keyframes`
     transform: translateY(0);
   }
 `;
-const BeeImg = styled.img`
+const BaseImg = styled.img`
   position: fixed;
   bottom: 12px;
   right: 12px;

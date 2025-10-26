@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styled, { keyframes } from "styled-components";
 import {
   CreateProfile,
   StatsInfo,
@@ -18,11 +19,48 @@ import {
 import { compactFormat, playSound, showToast } from "../utils";
 import { achievements } from "../constants";
 import "react-toastify/dist/ReactToastify.css";
-import HoneyJar from "../assets/honey-jar.png";
+import BaseLogo from "../assets/Logo-base.png";
 import ClickSound from "../assets/sounds/click.mp3";
 import { UserProfileProps } from "../types/userProfileProps";
 import { Share, WifiOff } from "@mui/icons-material";
 import { useOnlineStatus } from "../hooks";
+
+// FloatingNumber component
+const floatUp = keyframes`
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-30px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(0.9);
+  }
+`;
+
+const FloatingNumberContainer = styled.div<{ x: number; y: number }>`
+  position: absolute;
+  left: ${(props) => props.x}px;
+  top: ${(props) => props.y}px;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  pointer-events: none;
+  z-index: 1000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: ${floatUp} 2s ease-out forwards;
+  user-select: none;
+`;
+
+const FloatingNumber = ({ value, x, y }: { value: number; x: number; y: number }) => (
+  <FloatingNumberContainer x={x} y={y}>
+    +{value}
+  </FloatingNumberContainer>
+);
 
 export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   const userProfileProps = { userProfile, setUserProfile };
@@ -30,16 +68,47 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   const [addedPoints, setAddedPoints] = useState<number>(0);
   const [showAddedPoints, setShowAddedPoints] = useState<boolean>(false);
   const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [floatingNumbers, setFloatingNumbers] = useState<Array<{
+    id: number;
+    value: number;
+    x: number;
+    y: number;
+  }>>([]);
   const isOnline = useOnlineStatus();
-  // Function to handle clicking on the honey jar
-  const handleClick = () => {
+  // Function to handle clicking on the logo
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     // Play click sound
     playSound(ClickSound, userProfile.audioVolume);
     // Add points based on user's multiplier
     handleAddPoints(userProfile.points + userProfile.multiplier);
     setAddedPoints(userProfile.multiplier);
     !showAddedPoints && setShowAddedPoints(true);
-    //TODO: display the number of added points next to the button after clicking
+
+    // Calculate position for floating number relative to the container
+    const target = event.currentTarget;
+    const container = target.parentElement; // ClickContainer
+    
+    if (container) {
+      const containerRect = container.getBoundingClientRect();
+      const x = event.clientX - containerRect.left + (Math.random() - 0.5) * 20;
+      const y = event.clientY - containerRect.top + (Math.random() - 0.5) * 20;
+      
+      // Create floating number
+      const newFloatingNumber = {
+        id: Date.now() + Math.random(),
+        value: userProfile.multiplier,
+        x,
+        y,
+      };
+      
+      setFloatingNumbers(prev => [...prev, newFloatingNumber]);
+      
+      // Remove floating number after animation
+      setTimeout(() => {
+        setFloatingNumbers(prev => prev.filter(num => num.id !== newFloatingNumber.id));
+      }, 2000);
+    }
+
     // Increment click count
     setClicks(clicks + 1);
     //animation
@@ -162,7 +231,7 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   });
 
   useEffect(() => {
-    document.title = `Honey Clicker - ${compactFormat(userProfile.points)}`;
+    document.title = `Base Clicker - ${compactFormat(userProfile.points)} $BClick`;
   }, [userProfile.points]);
 
   useEffect(() => {
@@ -214,8 +283,8 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
     //share
     try {
       await navigator.share({
-        title: "Honey Clicker",
-        text: "Simple yet addictive clicker game where you can earn points by clicking on a honey jar. You can use your points to upgrade your clicking power and unlock achievements.",
+        title: "Base Clicker",
+        text: "Blockchain-themed clicker game where you can earn $BClick tokens by clicking on the Base logo. Use your tokens to buy mining nodes and upgrade your network power.",
         url: window.location.href,
       });
     } catch (error) {
@@ -237,17 +306,26 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
 
           <ClickContainer onTouchStart={(e) => e.preventDefault()}>
             <ClickButton
-              aria-label="Honey Jar"
+              aria-label="Base Logo"
               className={isClicked ? "clicked" : ""}
               onClick={handleClick}
               onTouchStart={(e) => e.preventDefault()}
             >
               <ClickImg
                 draggable="false"
-                src={HoneyJar}
-                alt="Honey Jar Image"
+                src={BaseLogo}
+                alt="Base Logo"
               />
             </ClickButton>
+            {/* Floating Numbers */}
+            {floatingNumbers.map((floatingNumber) => (
+              <FloatingNumber
+                key={floatingNumber.id}
+                value={floatingNumber.value}
+                x={floatingNumber.x}
+                y={floatingNumber.y}
+              />
+            ))}
           </ClickContainer>
 
           {/* TODO: improve the animation of added points  */}

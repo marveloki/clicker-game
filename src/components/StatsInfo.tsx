@@ -12,7 +12,7 @@ export const StatsInfo = ({ userProfile }: Props) => {
   const checkShowPoints = useScrollTrigger();
 
   const formatPoints = () => {
-    return `Points: 🍯${
+    return `$BClick: 🔵${
       userProfile.points > 100
         ? formatNumber(userProfile.points, 0)
         : formatNumber(userProfile.points)
@@ -24,7 +24,7 @@ export const StatsInfo = ({ userProfile }: Props) => {
       <StatsContainer>
         <h2>{formatPoints()}</h2>
         <span>
-          Max Points:{" "}
+          Max $BClick:{" "}
           {userProfile.maxPoints > 100
             ? formatNumber(userProfile.maxPoints, 0)
             : formatNumber(userProfile.maxPoints)}
@@ -66,7 +66,7 @@ const Points = styled.div<PointsProps>`
   background: #ffffffd9;
   backdrop-filter: blur(4px);
   color: #333;
-  border: 4px solid ${colorPalette.peach};
+  border: 4px solid ${colorPalette.baseBlue};
   font-size: 18px;
   border-radius: 20px;
   font-weight: 500;

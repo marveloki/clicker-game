@@ -1,11 +1,11 @@
 import { createTheme } from "@mui/material/styles";
 export const colorPalette = {
-  yellow: "#ffb604",
-  orange: "#f28705",
-  maroon: "#380000",
-  peach: "#f2b680",
-  brown: "#dc823c",
-  indigo: "#531aa5",
+  baseBlue: "#0052FF", // Base main blue
+  baseDark: "#001F8A", // Base dark blue
+  baseLight: "#4285FF", // Base light blue
+  white: "#FFFFFF",
+  gray: "#F5F5F5",
+  darkGray: "#666666",
   red: "#ff3737",
 };
 
@@ -15,10 +15,10 @@ export const MuiTheme = createTheme({
   },
   palette: {
     primary: {
-      main: colorPalette.orange,
+      main: colorPalette.baseBlue,
     },
     secondary: {
-      main: colorPalette.peach,
+      main: colorPalette.baseLight,
     },
     error: {
       main: colorPalette.red,

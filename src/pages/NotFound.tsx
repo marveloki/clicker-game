@@ -3,16 +3,16 @@ import { Button } from "@mui/material";
 import styled, { keyframes } from "styled-components";
 import { ArrowBackIos } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import SadBee from "../assets/SadBee.png";
+import BaseLogo from "../assets/Logo-base.png";
 
 export const NotFound = () => {
   const n = useNavigate();
   useEffect(() => {
-    document.title = `Page Not Found - Honey Clicker`;
+    document.title = `Page Not Found - Base Clicker`;
   }, []);
   return (
     <Container>
-      <Image src={SadBee} />
+      <Image src={BaseLogo} />
       <Title>404</Title>
       <Description>Page not found</Description>
       <Button

@@ -1,10 +1,10 @@
 /**
- * Represents an item that can be purchased in the clicker game.
+ * Represents an item that can be purchased in the Base Clicker game.
  * @interface
  * @property {string} name - The name of the item.
- * @property {number} cost - The cost of the item in honey.
- * @property {number} multiplier - The multiplier that the item applies to honey production.
- * @property {number} perSecond - The amount of honey produced per second by the item.
+ * @property {number} cost - The cost of the item in $BClick.
+ * @property {number} multiplier - The multiplier that the item applies to $BClick production.
+ * @property {number} perSecond - The amount of $BClick produced per second by the item.
  * @property {string} description - A description of the item.
  * @property {string} [emoji] - An optional emoji representing the item.
  */
@@ -23,219 +23,219 @@ export interface Item {
  * @type {Object<string, Item>}
  */
 export const items: { [key: string]: Item } = {
-  smallBee: {
-    name: "Very Small Bee",
+  basicNode: {
+    name: "Basic Node",
     cost: 20,
     multiplier: 0.5,
     perSecond: 2,
     description:
-      "A tiny bee that doesn't produce much honey, but is a good starting point for your hive.",
-    emoji: "🐝",
+      "A basic blockchain node that doesn't mine much $BClick, but is a good starting point for your network.",
+    emoji: "�",
   },
 
-  workerBee: {
-    name: "Worker Bee",
+  validatorNode: {
+    name: "Validator Node",
     cost: 100,
-    multiplier: 2,
+    multiplier: 1,
     perSecond: 5,
     description:
-      "The backbone of any bee colony, this bee works tirelessly to gather nectar and pollen and produce honey.",
-    emoji: "🐝",
+      "The backbone of any blockchain network, this validator works tirelessly to process transactions and secure the network.",
+    emoji: "⚡",
   },
 
-  honeycomb: {
-    name: "Honeycomb",
-    cost: 500,
-    multiplier: 5,
-    perSecond: 20,
+  smartContract: {
+    name: "Smart Contract",
+    cost: 200,
+    multiplier: 2,
+    perSecond: 10,
     description:
-      "A hexagonal wax structure that bees build to store their honey and raise their young.",
-    emoji: "🍯",
+      "A self-executing contract that automatically processes $BClick transactions and rewards.",
+    emoji: "📜",
   },
 
-  beekeepersHat: {
-    name: "Beekeeper's Hat",
+  hardwareWallet: {
+    name: "Hardware Wallet",
     cost: 1000,
     multiplier: 10,
     perSecond: 30,
     description:
-      "A hat with a veil that protects the beekeeper's head and face from bee stings.",
-    emoji: "🧢",
+      "A secure device that protects your $BClick tokens from hackers and malicious attacks.",
+    emoji: "🔐",
   },
 
-  queenBee: {
-    name: "Queen Bee",
+  masterNode: {
+    name: "Master Node",
     cost: 2500,
     multiplier: 25,
     perSecond: 50,
     description:
-      "The ruler of the hive, the queen bee is responsible for laying all the eggs and maintaining the colony's social order.",
+      "The ruler of the network, the master node is responsible for coordinating all mining operations and maintaining network security.",
     emoji: "👑",
   },
 
-  droneBee: {
-    name: "Drone Bee",
+  miningRig: {
+    name: "Mining Rig",
     cost: 5000,
     multiplier: 50,
     perSecond: 100,
     description:
-      "A male bee whose sole purpose is to mate with the queen bee. Essential for the survival of the colony.",
-    emoji: "🐝",
+      "A powerful mining setup designed to generate $BClick tokens through computational power. Essential for network growth.",
+    emoji: "⛏️",
   },
 
-  goldenFlower: {
-    name: "Golden Flower",
+  cryptoExchange: {
+    name: "Crypto Exchange",
     cost: 12500,
     multiplier: 75,
     perSecond: 180,
     description:
-      "A rare flower that produces honey with a distinct flavor and high nutritional value.",
-    emoji: "🌻",
+      "A digital marketplace that automatically trades $BClick tokens for maximum profit and liquidity.",
+    emoji: "💱",
   },
 
-  honeyPot: {
-    name: "Honey Pot",
+  treasuryVault: {
+    name: "Treasury Vault",
     cost: 20000,
     multiplier: 100,
     perSecond: 250,
     description:
-      "A pot filled with delicious, golden honey that's ready for human consumption.",
-    emoji: "🍯",
+      "A secure vault filled with $BClick tokens ready for staking and yield generation.",
+    emoji: "�",
   },
 
-  beeSuit: {
-    name: "Bee Suit",
+  quantumProcessor: {
+    name: "Quantum Processor",
     cost: 100000,
     multiplier: 500,
     perSecond: 1000,
     description:
-      "A protective suit that covers the entire body and prevents bee stings.",
-    emoji: "👩‍🚀",
+      "A quantum computing system that processes $BClick transactions at unprecedented speeds.",
+    emoji: "�",
   },
 
-  hive: {
-    name: "Hive",
+  dataCenter: {
+    name: "Data Center",
     cost: 500000,
     multiplier: 1000,
     perSecond: 2000,
     description:
-      "A structure made of wax and propolis that houses a bee colony.",
-    emoji: "🏡",
+      "A massive facility that houses hundreds of mining servers and network infrastructure.",
+    emoji: "�",
   },
 
-  royalJelly: {
-    name: "Royal Jelly",
+  liquidityPool: {
+    name: "Liquidity Pool",
     cost: 1000000,
     multiplier: 2000,
     perSecond: 5000,
     description:
-      "A special substance secreted by worker bees that's fed exclusively to the queen bee and her larvae.",
-    emoji: "👑",
+      "A special pool of $BClick tokens that provides liquidity and generates automatic yield through DeFi protocols.",
+    emoji: "🌊",
   },
 
-  pollinatorDrone: {
-    name: "Pollinator Drone",
+  satelliteNode: {
+    name: "Satellite Node",
     cost: 2500000,
     multiplier: 3000,
     perSecond: 7500,
     description:
-      "A specialized drone that's designed to pollinate flowers in large quantities, significantly boosting the efficiency of the bee colony.",
-    emoji: "🚁",
+      "A space-based mining node that operates 24/7 with unlimited solar power, significantly boosting network efficiency.",
+    emoji: "�️",
   },
 
-  royalHive: {
-    name: "Royal Hive",
+  blockchainFortress: {
+    name: "Blockchain Fortress",
     cost: 5000000,
     multiplier: 5000,
     perSecond: 10000,
     description:
-      "A luxurious hive fit for a queen, with spacious chambers and plenty of room for her attendants.",
+      "A luxurious fortress with the most advanced security protocols, protecting the network from any attacks.",
     emoji: "🏰",
   },
 
-  apiary: {
-    name: "Apiary",
+  miningFarm: {
+    name: "Mining Farm",
     cost: 10000000,
     multiplier: 7500,
     perSecond: 15000,
     description:
-      "A collection of beehives that's used for commercial honey production.",
+      "A massive collection of mining rigs used for industrial-scale $BClick token production.",
     emoji: "🏭",
   },
 
-  pollenCollector: {
-    name: "Pollen Collector",
+  aiOptimizer: {
+    name: "AI Optimizer",
     cost: 25000000,
     multiplier: 10000,
     perSecond: 20000,
     description:
-      "A machine that automatically collects pollen from flowers, making the work of the bees a little easier.",
-    emoji: "🌼",
+      "An AI system that automatically optimizes mining operations and network efficiency.",
+    emoji: "🤖",
   },
 
-  royalBee: {
-    name: "Royal Bee",
+  superNode: {
+    name: "Super Node",
     cost: 50000000,
     multiplier: 15000,
     perSecond: 30000,
     description:
-      " A majestic bee with a crown, known for its superior pollen collection and exquisite golden wings.",
-    emoji: "🐝",
+      "A majestic node with ultimate processing power, known for its superior transaction throughput and golden connectivity.",
+    emoji: "⚡",
   },
 
-  diamondHive: {
-    name: "Diamond Hive",
+  diamondVault: {
+    name: "Diamond Vault",
     cost: 100000000,
     multiplier: 25000,
     perSecond: 50000,
     description:
-      "A hive made entirely of diamond, the ultimate symbol of luxury and prestige.",
+      "A vault made entirely of diamond-grade security, the ultimate symbol of $BClick wealth and prestige.",
     emoji: "💎",
   },
 
-  honeyExtractor: {
-    name: "Honey Extractor",
+  tokenExtractor: {
+    name: "Token Extractor",
     cost: 500000000,
     multiplier: 50000,
     perSecond: 100000,
     description:
-      "A device that spins the honeycombs and extracts the honey using centrifugal force.",
-    emoji: "🍯",
+      "A device that extracts maximum value from the blockchain using advanced DeFi protocols.",
+    emoji: "🔄",
   },
-  beehiveObservatory: {
-    name: "Beehive Observatory",
+  blockchainObservatory: {
+    name: "Blockchain Observatory",
     cost: 1000000000,
     multiplier: 150000,
     perSecond: 350000,
     description:
-      "An advanced bee observatory with high-tech cameras and sensors for studying bee behavior in their habitat.",
+      "An advanced blockchain observatory with AI analytics and real-time monitoring for optimal network performance.",
     emoji: "🔭",
   },
-  beeMuseum: {
-    name: "Bee Museum",
+  cryptoMuseum: {
+    name: "Crypto Museum",
     cost: 5000000000,
     multiplier: 750000,
     perSecond: 1500000,
     description:
-      "A place that showcases the history, culture, and science of bees and honey.",
+      "A place that showcases the history, culture, and evolution of blockchain technology and $BClick.",
     emoji: "🏛️",
   },
-  honeyBeeStatue: {
-    name: "Honey Bee Statue",
+  baseStatue: {
+    name: "Base Monument",
     cost: 10000000000,
     multiplier: 2000000,
     perSecond: 4000000,
     description:
-      " A statue of a honey bee made of pure gold that represents the ultimate achievement in beekeeping.",
+      "A monument made of pure digital gold that represents the ultimate achievement in Base blockchain mastery.",
     emoji: "🗽",
   },
-  programmerBee: {
-    name: "Programmer Bee",
+  developerNode: {
+    name: "Developer Node",
     cost: 50000000000,
     multiplier: 10000000,
     perSecond: 250000000,
     description:
-      "A highly skilled bee who knows how to write code in languages such as JavaScript, React, TypeScript, and more. She has a strong background in front-end development.",
-    emoji: "🐝💻",
+      "A highly skilled development node that codes smart contracts in Solidity, JavaScript, React, TypeScript, and more. It has a strong background in Web3 development.",
+    emoji: "�‍💻",
   },
 };

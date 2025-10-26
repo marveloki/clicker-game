@@ -1,23 +1,18 @@
-# [🍯 Honey Clicker Game](https://honey-clicker-game.netlify.app/)
+# 🔵 Base Clicker Game
 
 <br />
 
-<img alt="logo" src="public/logo192.png" />
-
-<br />
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1aee53e8-2535-4aea-aef7-1744cde81411/deploy-status)](https://app.netlify.com/sites/honey-clicker-game/deploys)
-
-Welcome to Honey Clicker! This is a simple yet addictive clicker game where you can earn points by clicking on a honey jar. You can use your points to upgrade your clicking power, earn more points per second, and unlock achievements. Your progress is saved in localstorage, so you can resume your game anytime. Read more at [https://honey-clicker-game.netlify.app/about](https://honey-clicker-game.netlify.app/about)
+Welcome to Base Clicker! This is a blockchain-themed clicker game where you can earn $BClick tokens by clicking and building your mining network. Purchase nodes and upgrades to increase your mining power, earn more tokens per second, and unlock achievements. Your progress is saved locally while we prepare for full blockchain integration.
 
 ## ⚡ Features
 
-- Progress is saved in localstorage
-- Purchase various items in the shop to increase your clicking power
-- Unlock achievements with interesting descriptions by reaching certain goals
-- Daily quest that change every 24 hours available soon (or not)
+- Progress is saved locally
+- Purchase blockchain nodes and mining equipment to increase your $BClick production
+- Unlock achievements by reaching mining milestones  
+- Base Network themed items and upgrades
 - User profile settings where you can change your name and profile picture
 - Cool sound effects and volume slider
+- Preparing for full Web3 integration with WalletConnect
 - Responsive design that adapts to different screen sizes
 - PWA (can be installed on mobile/desktop), and works offline.
 

@@ -27,36 +27,36 @@ An object containing all the achievements that can be earned by the user.
 */
 export const achievements: { [key: string]: Achievement } = {
   //points
-  honeyBeginner: {
-    name: "Honey Beginner",
-    emoji: "🍯",
-    description: "Produce 100 honey",
+  blockchainBeginner: {
+    name: "Blockchain Beginner",
+    emoji: "🔵",
+    description: "Mine 100 $BClick tokens",
     longDescription:
-      "You've taken your first steps into the world of beekeeping and produced 100 sweet, golden drops of honey. Keep up the buzz-worthy work!",
+      "You've taken your first steps into the world of blockchain mining and produced 100 $BClick tokens. Keep up the digital work!",
     requirement: 100,
   },
-  beekeeperTrainee: {
-    name: "Beekeeper Trainee",
-    emoji: "🍯",
-    description: "Produce 1,000 honey",
+  minerTrainee: {
+    name: "Miner Trainee",
+    emoji: "⛏️",
+    description: "Mine 1,000 $BClick tokens",
     longDescription:
-      "You've graduated to the rank of Beekeeper Trainee by producing 1,000 jars of honey. Your bees must be working overtime!",
+      "You've graduated to the rank of Miner Trainee by producing 1,000 $BClick tokens. Your nodes must be working overtime!",
     requirement: 1000,
   },
-  honeyExpert: {
-    name: "Honey Expert",
-    emoji: "🍯",
-    description: "Produce 10,000 honey",
+  blockchainExpert: {
+    name: "Blockchain Expert",
+    emoji: "🔵",
+    description: "Mine 10,000 $BClick tokens",
     longDescription:
-      "You're no longer a novice beekeeper; you're a Honey Expert! You've produced 10,000 jars of honey and have undoubtedly earned the respect of your bee colony.",
+      "You're no longer a novice miner; you're a Blockchain Expert! You've produced 10,000 $BClick tokens and have undoubtedly earned respect in the network.",
     requirement: 10000,
   },
-  beekeepingMaster: {
-    name: "Beekeeping Master",
-    emoji: "🍯",
-    description: "Produce 100,000 honey",
+  miningMaster: {
+    name: "Mining Master",
+    emoji: "⛏️",
+    description: "Mine 100,000 $BClick tokens",
     longDescription:
-      "You've mastered the art of beekeeping and produced 100,000 jars of honey. Your honey is in high demand and your bees couldn't be happier.",
+      "You've mastered the art of blockchain mining and produced 100,000 $BClick tokens. Your tokens are in high demand and your nodes couldn't be happier.",
     requirement: 100000,
   },
   honeyLegend: {

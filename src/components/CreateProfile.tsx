@@ -24,7 +24,7 @@ export const CreateProfile = ({
   };
 
   useEffect(() => {
-    document.title = "Create Profile - Honey Clicker";
+    document.title = "Create Profile - Base Clicker";
   }, []);
   const handleSetUserProfile = () => {
     if (inputValue.length < 4) {

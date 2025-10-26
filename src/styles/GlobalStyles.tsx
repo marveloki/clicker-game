@@ -16,8 +16,8 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-text-size-adjust: 100%;
   --toastify-font-family: "Poppins", sans-serif;
   --toastify-color-error: #ff3737;
-  --toastify-color-progress-dark: #f28705;
-  --toastify-color-progress-light: #f28705;
+  --toastify-color-progress-dark: #0052FF;
+  --toastify-color-progress-light: #0052FF;
 }
 
 * {
@@ -26,18 +26,17 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 *::selection {
-  background: rgb(255, 153, 37);
+  background: #0052FF;
 }
 
 body {
   font-family: "Poppins", sans-serif !important;
   margin: 0;
-  background: #531aa5;
-  color: #efefef;
+  background: linear-gradient(135deg, #001F8A 0%, #0052FF 100%);
+  color: #ffffff;
   min-width: 320px;
   min-height: 100vh;
   touch-action: manipulation;
-  opacity: 0.8;
 }
 .MuiPaper-root,
 .MuiButtonBase-root {
