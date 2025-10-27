@@ -14,38 +14,33 @@ const GameContainer = styled.div`
     radial-gradient(ellipse at top, #0052FF 0%, #001F8A 100%),
     linear-gradient(135deg, #000814 0%, #001D3D 50%, #003566 100%);
   position: relative;
-  overflow: hidden;
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(0, 82, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
-    pointer-events: none;
-    animation: pulse 4s ease-in-out infinite alternate;
-  }
+
+
   
-  @keyframes pulse {
-    0% { opacity: 0.5; }
-    100% { opacity: 1; }
+  /* Mobile layout */
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
 const LeftPanel = styled.div`
   flex: 1;
   padding: 40px;
+  padding-right: 360px; /* Account for fixed RightPanel width + padding */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 1;
+  min-height: 100vh;
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    padding-right: 40px;
+    min-height: auto;
+  }
 `;
 
 const RightPanel = styled.div`
@@ -59,8 +54,10 @@ const RightPanel = styled.div`
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   padding: 24px;
   overflow-y: auto;
-  max-height: 100vh;
-  position: relative;
+  height: calc(100vh - 60px);
+  position: fixed;
+  right: 0;
+  top: 92px;
   z-index: 2;
   
   &::before {
@@ -96,6 +93,15 @@ const RightPanel = styled.div`
     &:hover {
       background: rgba(0, 82, 255, 0.7);
     }
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    width: 100%;
+    position: relative;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 `;
 
