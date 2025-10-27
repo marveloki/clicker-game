@@ -9,7 +9,6 @@ import BaseLogo from "../assets/Logo-base.png";
 
 const GameContainer = styled.div`
   display: flex;
-  min-height: 100vh;
   background: 
     radial-gradient(ellipse at top, #0052FF 0%, #001F8A 100%),
     linear-gradient(135deg, #000814 0%, #001D3D 50%, #003566 100%);
@@ -34,12 +33,10 @@ const LeftPanel = styled.div`
   justify-content: center;
   position: relative;
   z-index: 1;
-  min-height: 100vh;
   
   /* Mobile responsiveness */
   @media (max-width: 768px) {
     padding-right: 40px;
-    min-height: auto;
   }
 `;
 
@@ -132,6 +129,32 @@ const LogoImage = styled.img`
   object-fit: cover;
 `;
 
+const FloatingNumber = styled.div<{ x: number; y: number }>`
+  position: absolute;
+  color: #FFD700;
+  font-size: 24px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 1000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  left: ${props => props.x}px;
+  top: ${props => props.y}px;
+  animation: floatUp 1.5s ease-out forwards;
+  
+  @keyframes floatUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-60px);
+    }
+  }
+`;
+
+
+
 const Stats = styled.div`
   text-align: center;
   color: white;
@@ -167,10 +190,11 @@ const Stats = styled.div`
     margin: 8px 0;
     opacity: 0.9;
     font-weight: 500;
+    color: white;
     
     &:first-of-type {
       font-size: 18px;
-      color: #0052FF;
+      color: white;
       font-weight: 600;
     }
     
@@ -301,6 +325,7 @@ export const CookieClickerGame = ({ userProfile, setUserProfile }: UserProfilePr
   const [totalCookies, setTotalCookies] = useState(0);
   const [cookiesPerSecond, setCookiesPerSecond] = useState(0);
   const [buildingsOwned, setBuildingsOwned] = useState<{[key: string]: number}>({});
+  const [floatingNumbers, setFloatingNumbers] = useState<Array<{id: number, x: number, y: number, value: number}>>([]);
 
   // Calculate cookies per second based on buildings
   useEffect(() => {
@@ -329,13 +354,32 @@ export const CookieClickerGame = ({ userProfile, setUserProfile }: UserProfilePr
     }
   }, [cookiesPerSecond]);
 
-  const handleCookieClick = () => {
+  const handleCookieClick = (event: React.MouseEvent) => {
     playSound(BuySound, userProfile.audioVolume);
     setCookies(prev => {
       const newCookies = prev + 1;
       setTotalCookies(total => Math.max(total, newCookies));
       return newCookies;
     });
+
+    // Create floating +1 animation
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    
+    const newFloatingNumber = {
+      id: Date.now() + Math.random(),
+      x: x,
+      y: y,
+      value: 1
+    };
+    
+    setFloatingNumbers(prev => [...prev, newFloatingNumber]);
+    
+    // Remove floating number after animation
+    setTimeout(() => {
+      setFloatingNumbers(prev => prev.filter(num => num.id !== newFloatingNumber.id));
+    }, 1500);
   };
 
   const buyBuilding = (buildingId: string) => {
@@ -362,9 +406,17 @@ export const CookieClickerGame = ({ userProfile, setUserProfile }: UserProfilePr
   return (
     <GameContainer>
       <LeftPanel>
-        <CookieButton onClick={handleCookieClick}>
-          <LogoImage src={BaseLogo} alt="Base Logo" draggable="false" />
-        </CookieButton>
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <CookieButton onClick={handleCookieClick}>
+            <LogoImage src={BaseLogo} alt="Base Logo" draggable="false" />
+          </CookieButton>
+          {/* Floating numbers */}
+          {floatingNumbers.map(num => (
+            <FloatingNumber key={num.id} x={num.x} y={num.y}>
+              +{num.value}
+            </FloatingNumber>
+          ))}
+        </div>
         <Stats>
           <h2>{compactFormat(Math.floor(cookies))} cookies</h2>
           <p>per second: {compactFormat(cookiesPerSecond)}</p>
@@ -386,7 +438,11 @@ export const CookieClickerGame = ({ userProfile, setUserProfile }: UserProfilePr
               onClick={() => canAfford && buyBuilding(buildingId)}
             >
               <BuildingName>
-                {building.emoji} {building.name}
+                {building.icon ? (
+                  <img src={building.icon} alt={building.name} style={{ width: '32px', height: '32px' }} />
+                ) : (
+                  building.emoji
+                )} {building.name}
               </BuildingName>
               <BuildingInfo>
                 <div>

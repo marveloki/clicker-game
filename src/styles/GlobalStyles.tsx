@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import cursor from "../assets/cursor.png";
+import cursor from "../assets/cursopixel.png";
 
 export const GlobalStyle = createGlobalStyle`
 :root {

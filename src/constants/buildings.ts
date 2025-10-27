@@ -9,8 +9,12 @@ export interface Building {
   baseCps: number; // Base cookies per second
   description: string;
   emoji: string;
+  icon?: string; // Optional icon image path
   flavor: string; // Flavor text like original Cookie Clicker
 }
+
+import cursorIcon from "../assets/cursopixel.png";
+import grandmaIcon from "../assets/pixil-frame-0.png";
 
 /**
  * Buildings inspired by Cookie Clicker but with blockchain theme
@@ -23,16 +27,18 @@ export const buildings: { [key: string]: Building } = {
     baseCps: 0.1,
     description: "Automatically clicks the cookie for you.",
     emoji: "👆",
+    icon: cursorIcon,
     flavor: "A simple automated clicking device. Clicks once every 10 seconds."
   },
   
   grandma: {
     id: "grandma",
-    name: "Cookie Grandma",
+    name: "Base Grandma",
     baseCost: 100,
     baseCps: 1,
     description: "A nice grandma to bake more cookies.",
     emoji: "👵",
+    icon: grandmaIcon,
     flavor: "A kindly old lady who bakes cookies with love and blockchain technology."
   },
   
