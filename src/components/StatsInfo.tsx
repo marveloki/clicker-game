@@ -1,4 +1,4 @@
-import { formatNumber } from "../utils";
+import { formatNumber, compactFormat } from "../utils";
 import { User } from "../types/user";
 import styled from "styled-components";
 import { colorPalette } from "../styles";
@@ -11,8 +11,8 @@ interface Props {
 export const StatsInfo = ({ userProfile }: Props) => {
   const checkShowPoints = useScrollTrigger();
 
-  const formatPoints = () => {
-    return `$BClick: 🔵${
+  const formatCookies = () => {
+    return `Cookies: 🍪${
       userProfile.points > 100
         ? formatNumber(userProfile.points, 0)
         : formatNumber(userProfile.points)
@@ -22,9 +22,9 @@ export const StatsInfo = ({ userProfile }: Props) => {
   return (
     <>
       <StatsContainer>
-        <h2>{formatPoints()}</h2>
+        <h2>{formatCookies()}</h2>
         <span>
-          Max $BClick:{" "}
+          Max Cookies:{" "}
           {userProfile.maxPoints > 100
             ? formatNumber(userProfile.maxPoints, 0)
             : formatNumber(userProfile.maxPoints)}
@@ -36,7 +36,7 @@ export const StatsInfo = ({ userProfile }: Props) => {
         <br />
         <span>Per Second: {formatNumber(userProfile.perSecond)}</span>
       </StatsContainer>
-      <Points show={checkShowPoints}>{formatPoints()}</Points>
+      <Points show={checkShowPoints}>{formatCookies()}</Points>
     </>
   );
 };

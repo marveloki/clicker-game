@@ -15,7 +15,7 @@ export const About = () => {
   const itemsCount = Object.keys(items).length;
   // Set the document title
   useEffect(() => {
-    document.title = "About - Base Clicker";
+    document.title = "About - Cookie on Base";
   }, []);
 
   // Define the technology stack used to build the game
@@ -37,19 +37,19 @@ export const About = () => {
         }}
       >
         <AboutContainer>
-          <AboutTitle>About Base Clicker</AboutTitle>
+          <AboutTitle>About Cookie on Base</AboutTitle>
           <AboutText>
-            <b>Welcome to Base Clicker!</b> This is a blockchain-themed
-            clicker game where you can earn $BClick tokens by clicking on the Base logo.
+            <b>Welcome to Cookie on Base!</b> This is a blockchain-themed
+            clicker game where you can earn cookies by clicking on the Base logo.
             You can use your points to upgrade your clicking power, earn more
             points per second, and unlock achievements.
           </AboutText>
           <AboutText>
-            <b>To get started,</b> simply click on the Base logo to earn $BClick tokens.
+            <b>To get started,</b> simply click on the Base logo to earn cookies.
             You can also use the volume slider to adjust the game's sound
             effects. Don't forget to check out the stats info to see how many
             points you've earned and your progress towards unlocking
-            achievements. To customize your Base Clicker profile, you can
+            achievements. To customize your Cookie on Base profile, you can
             access the user profile settings by clicking on the profile icon at
             the top right corner of the game's screen. From there, you can
             change your username and profile picture by clicking on the
@@ -58,7 +58,7 @@ export const About = () => {
           <AboutText>
             <b>As you play the game,</b> you will unlock various achievements.
             There are currently <b>{achievementsCount} achievements</b>{" "}
-            available to unlock in Base Clicker. These include achievements for
+            available to unlock in Cookie on Base. These include achievements for
             mining tokens, clicking the logo, and more. You can also visit
             the shop to purchase upgrades that will increase your points per
             second and multiplier. They are <b>{itemsCount} unique items</b> to
@@ -66,7 +66,7 @@ export const About = () => {
           </AboutText>
 
           <AboutText>
-            <b>Base Clicker is a Progressive Web App. </b>
+            <b>Cookie on Base is a Progressive Web App. </b>
             Add this app to your home screen for quick and easy access to the
             game. This game works offline, so you can play it anytime, anywhere
             without an internet connection.
@@ -131,7 +131,7 @@ const AboutContainer = styled.div`
 const AboutTitle = styled.h1`
   font-size: 36px;
   font-weight: bold;
-  color: ${colorPalette.orange};
+  color: ${colorPalette.baseBlue};
   margin-bottom: 20px;
 `;
 
@@ -153,7 +153,7 @@ interface LinkProps {
 
 const AboutLink = styled.a<LinkProps>`
   cursor: pointer;
-  color: ${(props) => props.color || colorPalette.orange};
+  color: ${(props) => props.color || colorPalette.baseBlue};
   display: inline-block;
   position: relative;
   text-decoration: none;
@@ -167,7 +167,7 @@ const AboutLink = styled.a<LinkProps>`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: ${(props) => props.color || colorPalette.orange};
+    background-color: ${(props) => props.color || colorPalette.baseBlue};
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
     border-radius: 100px;
@@ -178,7 +178,7 @@ const AboutLink = styled.a<LinkProps>`
     transform-origin: bottom left;
   }
   &:hover {
-    text-shadow: 0px 0px 20px ${(props) => props.color || colorPalette.orange};
+    text-shadow: 0px 0px 20px ${(props) => props.color || colorPalette.baseBlue};
   }
   &:focus,
   &:focus-visible {

@@ -8,7 +8,7 @@ import BaseLogo from "../assets/Logo-base.png";
 export const NotFound = () => {
   const n = useNavigate();
   useEffect(() => {
-    document.title = `Page Not Found - Base Clicker`;
+    document.title = `Page Not Found - Cookie on Base`;
   }, []);
   return (
     <Container>

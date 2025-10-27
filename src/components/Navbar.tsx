@@ -17,7 +17,7 @@ export const Navbar = ({ children }: Props) => {
         <Link to="/">
           <LogoContainer>
             <LogoImage alt="logo" src={BaseLogo} />
-            <LogoTxt>Base Clicker</LogoTxt>
+            <LogoTxt>Cookie on Base</LogoTxt>
           </LogoContainer>
         </Link>
         <AboutLink to="/about">About</AboutLink>
@@ -57,28 +57,28 @@ const LogoImage = styled.img`
     margin-left: 8px;
   }
   ${LogoContainer}:hover > & {
-    filter: drop-shadow(0px 0px 16px #ffd071);
+    filter: drop-shadow(0px 0px 16px #1714dbff);
   }
 `;
 
 const AboutLink = styled(Link)`
   font-size: 22px;
   margin-left: 30px;
-  color: ${colorPalette.orange};
+  color: ${colorPalette.baseBlue};
   text-decoration: underline;
   transition: 0.3s text-shadow;
   &:hover {
-    text-shadow: 0px 0px 12px ${colorPalette.orange};
+    text-shadow: 0px 0px 12px ${colorPalette.baseBlue};
   }
 `;
 
 const LogoTxt = styled.p`
   font-size: 26px;
-  color: ${colorPalette.orange};
+  color: ${colorPalette.baseBlue};
   font-weight: bold;
-  text-shadow: 0px 0px 4px ${colorPalette.orange};
+  text-shadow: 0px 0px 4px ${colorPalette.baseBlue};
   transition: 0.3s text-shadow;
   ${LogoContainer}:hover > & {
-    text-shadow: 0px 0px 12px ${colorPalette.orange};
+    text-shadow: 0px 0px 12px ${colorPalette.baseBlue};
   }
 `;

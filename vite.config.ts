@@ -20,9 +20,9 @@ export default defineConfig({
         display: "standalone",
         scope: "/",
         start_url: "/",
-        short_name: "Base Clicker",
-        description: "Base Clicker - Blockchain Mining Game",
-        name: "Base Clicker",
+        short_name: "Cookie on Base",
+        description: "Cookie on Base - Blockchain Mining Game",
+        name: "Cookie on Base",
         icons: [
           {
             src: "logo192.png",

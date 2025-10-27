@@ -1,6 +1,8 @@
 export { CreateProfile } from "./CreateProfile";
 export { StatsInfo } from "./StatsInfo";
 export { Shop } from "./Shop";
+export { BuildingShop } from "./BuildingShop";
+export { UpgradeShop } from "./UpgradeShop";
 export { Navbar } from "./Navbar";
 export { AchievementsList } from "./AchievementsList";
 export { ProfileAvatar } from "./ProfileAvatar";
@@ -8,3 +10,4 @@ export { BackToTop } from "./BackToTop";
 export { BackButton } from "./BackButton";
 export { VolumeSlider } from "./VolumeSlider";
 export { Quests } from "./Quests";
+export { CookieClickerGame } from "./CookieClickerGame";

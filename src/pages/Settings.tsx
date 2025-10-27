@@ -29,7 +29,7 @@ export const Settings = ({ userProfile, setUserProfile }: UserProfileProps) => {
   const [logoutDialog, setLogoutDialog] = useState<boolean>(false);
   const n = useNavigate();
   useEffect(() => {
-    document.title = `Settings - ${userProfile.name} - Base Clicker`;
+    document.title = `Settings - ${userProfile.name} - Cookie on Base`;
   }, []);
   useEffect(() => {
     if (userProfile.name === null) {

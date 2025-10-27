@@ -82,7 +82,7 @@ export const Quests = ({ userProfile, setUserProfile }: UserProfileProps) => {
       ) : (
         <Completed>All quests completed!</Completed>
       )}
-      {!allCompleted && <p>Reward: 🍯{compactFormat(reward)}</p>}
+      {!allCompleted && <p>Reward: �{compactFormat(reward)}</p>}
       <Button
         onClick={() => {
           setQuestsList((prevState) => {

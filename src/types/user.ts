@@ -2,12 +2,13 @@
 Represents the user profile data structure.
 @interface
 @property {string | null} name - The user's name.
-@property {number} points - The user's total points.
+@property {number} cookies - The user's total cookies (was points).
+@property {number} totalCookies - Total cookies baked all time.
 @property {number} clicks - The number of clicks the user has made.
-@property {number} maxPoints - The user's maximum possible points.
-@property {number} multiplier - The user's current point multiplier.
-@property {number} perSecond - The number of points the user earns per second.
-@property {Object.<string, number>} inventory - The user's inventory of items, where the keys are the item names and the values are the number of items.
+@property {number} cookiesPerSecond - Base cookies per second from buildings.
+@property {number} cookiesPerClick - Cookies gained per click.
+@property {Object.<string, number>} buildings - Buildings owned by the user.
+@property {string[]} upgrades - Purchased upgrades.
 @property {string[]} achievements - The user's list of achieved achievements.
 @property {number} newAchievements - The number of unread achievements.
 @property {number} audioVolume - The user's audio volume level.
@@ -18,14 +19,23 @@ export interface User {
   name: string | null;
   profilePicture: string | null;
   createdAt: Date;
-  points: number;
+  cookies: number; // Current cookies (was points)
+  totalCookies: number; // Total cookies baked all time
   clicks: number;
-  maxPoints: number;
-  multiplier: number;
-  perSecond: number;
+  cookiesPerSecond: number; // CpS from buildings
+  cookiesPerClick: number; // Base cookies per click (usually 1)
+  buildings: {
+    [buildingId: string]: number;
+  };
+  upgrades: string[]; // Array of purchased upgrade IDs
+  // Legacy fields for compatibility
+  points: number; // Keep for backwards compatibility, will equal cookies
+  maxPoints: number; // Keep for backwards compatibility
+  multiplier: number; // Keep for backwards compatibility  
+  perSecond: number; // Keep for backwards compatibility
   inventory: {
     [itemName: string]: number;
-  };
+  }; // Keep old inventory for now
   achievements: string[];
   newAchievements: number;
   audioVolume: number;

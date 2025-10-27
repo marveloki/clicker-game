@@ -29,7 +29,7 @@ export const ClickImg = styled.img`
 `;
 
 export const ClickButton = muistyled(Button)({
-  border: `5px solid ${colorPalette.orange}`,
+  border: `5px solid ${colorPalette.baseBlue}`,
   borderRadius: "64px",
   transition: ".15s all ease-out",
   "@media not all and (pointer: coarse)": {
@@ -39,7 +39,7 @@ export const ClickButton = muistyled(Button)({
   },
   "&.clicked": {
     borderRadius: "82px",
-    borderColor: colorPalette.yellow,
+    borderColor: colorPalette.baseLight,
     transform: "scale(.9)",
   },
 });
@@ -55,7 +55,7 @@ export const ShareButton = styled.button`
   border-radius: 20px;
   background: #ffffff2f;
   display: flex;
-  color: ${colorPalette.orange};
+  color: ${colorPalette.baseBlue};
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s all;
@@ -68,12 +68,31 @@ export const Offline = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: 
+    linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.15) 0%, 
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  backdrop-filter: blur(20px);
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 -4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 600;
+  z-index: 1000;
+  font-size: 14px;
 
   & span {
-    color: ${colorPalette.red};
-    text-shadow: 0 0 6px#ff5e5e;
+    color: #FF6B6B;
     margin-right: 6px;
     margin-left: 6px;
+    font-weight: 700;
   }
 `;
 

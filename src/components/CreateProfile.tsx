@@ -24,7 +24,7 @@ export const CreateProfile = ({
   };
 
   useEffect(() => {
-    document.title = "Create Profile - Base Clicker";
+    document.title = "Create Profile - Cookie on Base";
   }, []);
   const handleSetUserProfile = () => {
     if (inputValue.length < 4) {

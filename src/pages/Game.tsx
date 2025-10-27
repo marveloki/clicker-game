@@ -7,6 +7,7 @@ import {
   BackToTop,
   VolumeSlider,
   Quests,
+  CookieClickerGame,
 } from "../components";
 import {
   ClickButton,
@@ -68,6 +69,7 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   const [addedPoints, setAddedPoints] = useState<number>(0);
   const [showAddedPoints, setShowAddedPoints] = useState<boolean>(false);
   const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [useCookieClickerMode, setUseCookieClickerMode] = useState<boolean>(true);
   const [floatingNumbers, setFloatingNumbers] = useState<Array<{
     id: number;
     value: number;
@@ -79,7 +81,8 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     // Play click sound
     playSound(ClickSound, userProfile.audioVolume);
-    // Add points based on user's multiplier
+    
+    // Add points based on user's multiplier (using legacy system for now)
     handleAddPoints(userProfile.points + userProfile.multiplier);
     setAddedPoints(userProfile.multiplier);
     !showAddedPoints && setShowAddedPoints(true);
@@ -231,7 +234,7 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   });
 
   useEffect(() => {
-    document.title = `Base Clicker - ${compactFormat(userProfile.points)} $BClick`;
+    document.title = `Cookie on Base - ${compactFormat(userProfile.points)} cookies`;
   }, [userProfile.points]);
 
   useEffect(() => {
@@ -272,7 +275,7 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
           <span>
             {shareAchievement.description}{" "}
             {shareAchievement.reward && (
-              <b>Reward: 🍯{shareAchievement.reward}</b>
+              <b>Reward: �{shareAchievement.reward}</b>
             )}
           </span>
         ),
@@ -283,8 +286,8 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
     //share
     try {
       await navigator.share({
-        title: "Base Clicker",
-        text: "Blockchain-themed clicker game where you can earn $BClick tokens by clicking on the Base logo. Use your tokens to buy mining nodes and upgrade your network power.",
+        title: "Cookie on Base",
+        text: "Blockchain-themed clicker game where you can earn cookies by clicking on the Base logo. Use your cookies to buy mining nodes and upgrade your network power.",
         url: window.location.href,
       });
     } catch (error) {
@@ -304,36 +307,49 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
             <Share /> &nbsp; Share
           </ShareButton>
 
-          <ClickContainer onTouchStart={(e) => e.preventDefault()}>
-            <ClickButton
-              aria-label="Base Logo"
-              className={isClicked ? "clicked" : ""}
-              onClick={handleClick}
-              onTouchStart={(e) => e.preventDefault()}
-            >
-              <ClickImg
-                draggable="false"
-                src={BaseLogo}
-                alt="Base Logo"
-              />
-            </ClickButton>
-            {/* Floating Numbers */}
-            {floatingNumbers.map((floatingNumber) => (
-              <FloatingNumber
-                key={floatingNumber.id}
-                value={floatingNumber.value}
-                x={floatingNumber.x}
-                y={floatingNumber.y}
-              />
-            ))}
-          </ClickContainer>
+          <ShareButton 
+            onClick={() => setUseCookieClickerMode(!useCookieClickerMode)}
+            style={{ right: '20px', top: '70px' }}
+          >
+            🍪 {useCookieClickerMode ? 'Legacy Mode' : 'Cookie Mode'}
+          </ShareButton>
 
-          {/* TODO: improve the animation of added points  */}
-          {/* <Points show={showAddedPoints}>+{addedPoints}</Points> */}
-          <StatsInfo userProfile={userProfile} />
-          {/*TODO: Implement the quests component as it is not done yet. */}
-          {/* <Quests {...userProfileProps} /> */}
-          <Shop {...userProfileProps} />
+          {useCookieClickerMode ? (
+            <CookieClickerGame {...userProfileProps} />
+          ) : (
+            <>
+              <ClickContainer onTouchStart={(e) => e.preventDefault()}>
+                <ClickButton
+                  aria-label="Base Logo"
+                  className={isClicked ? "clicked" : ""}
+                  onClick={handleClick}
+                  onTouchStart={(e) => e.preventDefault()}
+                >
+                  <ClickImg
+                    draggable="false"
+                    src={BaseLogo}
+                    alt="Base Logo"
+                  />
+                </ClickButton>
+                {/* Floating Numbers */}
+                {floatingNumbers.map((floatingNumber) => (
+                  <FloatingNumber
+                    key={floatingNumber.id}
+                    value={floatingNumber.value}
+                    x={floatingNumber.x}
+                    y={floatingNumber.y}
+                  />
+                ))}
+              </ClickContainer>
+
+              {/* TODO: improve the animation of added points  */}
+              {/* <Points show={showAddedPoints}>+{addedPoints}</Points> */}
+              <StatsInfo userProfile={userProfile} />
+              {/*TODO: Implement the quests component as it is not done yet. */}
+              {/* <Quests {...userProfileProps} /> */}
+              <Shop {...userProfileProps} />
+            </>
+          )}
           {!isOnline && (
             <Offline>
               <WifiOff /> &nbsp; You're <span> offline </span> but you can still

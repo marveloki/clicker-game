@@ -30,33 +30,33 @@ export const achievements: { [key: string]: Achievement } = {
   blockchainBeginner: {
     name: "Blockchain Beginner",
     emoji: "🔵",
-    description: "Mine 100 $BClick tokens",
+    description: "Mine 100 cookies",
     longDescription:
-      "You've taken your first steps into the world of blockchain mining and produced 100 $BClick tokens. Keep up the digital work!",
+      "You've taken your first steps into the world of blockchain mining and produced 100 cookies. Keep up the digital work!",
     requirement: 100,
   },
   minerTrainee: {
     name: "Miner Trainee",
     emoji: "⛏️",
-    description: "Mine 1,000 $BClick tokens",
+    description: "Mine 1,000 cookies",
     longDescription:
-      "You've graduated to the rank of Miner Trainee by producing 1,000 $BClick tokens. Your nodes must be working overtime!",
+      "You've graduated to the rank of Miner Trainee by producing 1,000 cookies. Your nodes must be working overtime!",
     requirement: 1000,
   },
   blockchainExpert: {
     name: "Blockchain Expert",
     emoji: "🔵",
-    description: "Mine 10,000 $BClick tokens",
+    description: "Mine 10,000 cookies",
     longDescription:
-      "You're no longer a novice miner; you're a Blockchain Expert! You've produced 10,000 $BClick tokens and have undoubtedly earned respect in the network.",
+      "You're no longer a novice miner; you're a Blockchain Expert! You've produced 10,000 cookies and have undoubtedly earned respect in the network.",
     requirement: 10000,
   },
   miningMaster: {
     name: "Mining Master",
     emoji: "⛏️",
-    description: "Mine 100,000 $BClick tokens",
+    description: "Mine 100,000 cookies",
     longDescription:
-      "You've mastered the art of blockchain mining and produced 100,000 $BClick tokens. Your tokens are in high demand and your nodes couldn't be happier.",
+      "You've mastered the art of blockchain mining and produced 100,000 cookies. Your cookies are in high demand and your nodes couldn't be happier.",
     requirement: 100000,
   },
   honeyLegend: {

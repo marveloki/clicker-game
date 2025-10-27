@@ -1,10 +1,10 @@
 /**
- * Represents an item that can be purchased in the Base Clicker game.
+ * Represents an item that can be purchased in the Cookie on Base game.
  * @interface
  * @property {string} name - The name of the item.
- * @property {number} cost - The cost of the item in $BClick.
- * @property {number} multiplier - The multiplier that the item applies to $BClick production.
- * @property {number} perSecond - The amount of $BClick produced per second by the item.
+ * @property {number} cost - The cost of the item in cookies.
+ * @property {number} multiplier - The multiplier that the item applies to cookie production.
+ * @property {number} perSecond - The amount of cookies produced per second by the item.
  * @property {string} description - A description of the item.
  * @property {string} [emoji] - An optional emoji representing the item.
  */
@@ -29,8 +29,8 @@ export const items: { [key: string]: Item } = {
     multiplier: 0.5,
     perSecond: 2,
     description:
-      "A basic blockchain node that doesn't mine much $BClick, but is a good starting point for your network.",
-    emoji: "�",
+      "A basic blockchain node that doesn't mine many cookies, but is a good starting point for your network.",
+    emoji: "💎",
   },
 
   validatorNode: {
@@ -49,7 +49,7 @@ export const items: { [key: string]: Item } = {
     multiplier: 2,
     perSecond: 10,
     description:
-      "A self-executing contract that automatically processes $BClick transactions and rewards.",
+      "A self-executing contract that automatically processes cookie transactions and rewards.",
     emoji: "📜",
   },
 
@@ -59,7 +59,7 @@ export const items: { [key: string]: Item } = {
     multiplier: 10,
     perSecond: 30,
     description:
-      "A secure device that protects your $BClick tokens from hackers and malicious attacks.",
+      "A secure device that protects your cookies from hackers and malicious attacks.",
     emoji: "🔐",
   },
 
@@ -79,7 +79,7 @@ export const items: { [key: string]: Item } = {
     multiplier: 50,
     perSecond: 100,
     description:
-      "A powerful mining setup designed to generate $BClick tokens through computational power. Essential for network growth.",
+      "A powerful mining setup designed to generate cookies through computational power. Essential for network growth.",
     emoji: "⛏️",
   },
 
@@ -89,7 +89,7 @@ export const items: { [key: string]: Item } = {
     multiplier: 75,
     perSecond: 180,
     description:
-      "A digital marketplace that automatically trades $BClick tokens for maximum profit and liquidity.",
+      "A digital marketplace that automatically trades cookies for maximum profit and liquidity.",
     emoji: "💱",
   },
 
@@ -99,8 +99,8 @@ export const items: { [key: string]: Item } = {
     multiplier: 100,
     perSecond: 250,
     description:
-      "A secure vault filled with $BClick tokens ready for staking and yield generation.",
-    emoji: "�",
+      "A secure vault filled with cookies ready for staking and yield generation.",
+    emoji: "🏛️",
   },
 
   quantumProcessor: {
@@ -109,8 +109,8 @@ export const items: { [key: string]: Item } = {
     multiplier: 500,
     perSecond: 1000,
     description:
-      "A quantum computing system that processes $BClick transactions at unprecedented speeds.",
-    emoji: "�",
+      "A quantum computing system that processes cookie transactions at unprecedented speeds.",
+    emoji: "⚛️",
   },
 
   dataCenter: {
@@ -129,7 +129,7 @@ export const items: { [key: string]: Item } = {
     multiplier: 2000,
     perSecond: 5000,
     description:
-      "A special pool of $BClick tokens that provides liquidity and generates automatic yield through DeFi protocols.",
+      "A special pool of cookies that provides liquidity and generates automatic yield through DeFi protocols.",
     emoji: "🌊",
   },
 
@@ -159,7 +159,7 @@ export const items: { [key: string]: Item } = {
     multiplier: 7500,
     perSecond: 15000,
     description:
-      "A massive collection of mining rigs used for industrial-scale $BClick token production.",
+      "A massive collection of mining rigs used for industrial-scale cookie production.",
     emoji: "🏭",
   },
 
@@ -189,7 +189,7 @@ export const items: { [key: string]: Item } = {
     multiplier: 25000,
     perSecond: 50000,
     description:
-      "A vault made entirely of diamond-grade security, the ultimate symbol of $BClick wealth and prestige.",
+      "A vault made entirely of diamond-grade security, the ultimate symbol of cookie wealth and prestige.",
     emoji: "💎",
   },
 
@@ -217,7 +217,7 @@ export const items: { [key: string]: Item } = {
     multiplier: 750000,
     perSecond: 1500000,
     description:
-      "A place that showcases the history, culture, and evolution of blockchain technology and $BClick.",
+      "A place that showcases the history, culture, and evolution of blockchain technology and cookies.",
     emoji: "🏛️",
   },
   baseStatue: {
