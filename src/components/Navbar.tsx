@@ -20,7 +20,6 @@ export const Navbar = ({ children }: Props) => {
             <LogoTxt>Cookie on Base</LogoTxt>
           </LogoContainer>
         </Link>
-        <AboutLink to="/about">About</AboutLink>
         {children}
       </Nav>
       <div style={{ paddingTop: "110px" }} />
@@ -58,17 +57,6 @@ const LogoImage = styled.img`
   }
   ${LogoContainer}:hover > & {
     filter: drop-shadow(0px 0px 16px #1714dbff);
-  }
-`;
-
-const AboutLink = styled(Link)`
-  font-size: 22px;
-  margin-left: 30px;
-  color: ${colorPalette.baseBlue};
-  text-decoration: underline;
-  transition: 0.3s text-shadow;
-  &:hover {
-    text-shadow: 0px 0px 12px ${colorPalette.baseBlue};
   }
 `;
 

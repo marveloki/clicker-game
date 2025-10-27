@@ -4,7 +4,7 @@ import { User } from "../types/user";
  * @type {User}
  */
 export const defaultUserProfile: User = {
-  name: null,
+  name: "Player",
   createdAt: new Date(),
   profilePicture: null,
   cookies: 0,

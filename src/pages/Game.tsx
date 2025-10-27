@@ -2,6 +2,8 @@ import {
   CreateProfile,
   CookieClickerGame,
   VolumeSlider,
+  Web3UserMenu,
+  DonationFooter,
 } from "../components";
 import {
   Offline,
@@ -9,11 +11,39 @@ import {
 } from "../styles";
 import { UserProfileProps } from "../types/userProfileProps";
 import { Share, WifiOff } from "@mui/icons-material";
-import { useOnlineStatus } from "../hooks";
+import { useOnlineStatus, useAutoSave, useWeb3GameData } from "../hooks";
+import { useAppKitAccount } from '@reown/appkit/react';
+import { useEffect } from 'react';
 
 export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   const userProfileProps = { userProfile, setUserProfile };
   const isOnline = useOnlineStatus();
+  const { isConnected } = useAppKitAccount();
+  const { loadGameData } = useWeb3GameData();
+  
+  // Auto-save configurado
+  useAutoSave({ userProfile, isConnected });
+
+  // Auto-load quando conecta carteira
+  useEffect(() => {
+    if (isConnected) {
+      const savedData = loadGameData();
+      if (savedData) {
+        setUserProfile({
+          ...userProfile,
+          cookies: savedData.cookies,
+          totalCookies: savedData.totalCookies,
+          clicks: savedData.clicks,
+          cookiesPerSecond: savedData.cookiesPerSecond,
+          cookiesPerClick: savedData.cookiesPerClick,
+          buildings: savedData.buildings,
+          upgrades: savedData.upgrades,
+          achievements: savedData.achievements
+        });
+        console.log('🎮 Game progress auto-loaded from Base Sepolia');
+      }
+    }
+  }, [isConnected]);
 
   const handleShareClick = async () => {
     try {
@@ -33,6 +63,7 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
         <CreateProfile {...userProfileProps} />
       ) : (
         <>
+          <Web3UserMenu {...userProfileProps} />
           <VolumeSlider {...userProfileProps} />
 
           <ShareButton onClick={handleShareClick}>
@@ -40,6 +71,7 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
           </ShareButton>
 
           <CookieClickerGame {...userProfileProps} />
+          <DonationFooter />
           {!isOnline && (
             <Offline>
               <WifiOff /> &nbsp; You're <span> offline </span> but you can still

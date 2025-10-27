@@ -1,28 +1,41 @@
 import { Game } from "./pages/Game";
 import { Routes, Route } from "react-router-dom";
-import { About } from "./pages/About";
 import { useStorageState } from "./hooks";
 import { defaultUserProfile } from "./constants";
 import { User } from "./types/user";
-import { Settings } from "./pages/Settings";
+import { Settings } from "./pages/Web3Settings";
 import { ThemeProvider } from "@mui/material";
 import { GlobalStyle, MuiTheme } from "./styles";
 import { ToastContainer } from "react-toastify";
 import { NotFound } from "./pages/NotFound";
 import { MainLayout } from "./layouts/MainLayout";
-function App() {
+import { LandingPage } from "./components";
+import { Web3Provider } from "./config/web3";
+import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
+function AppContent() {
   const [userProfile, setUserProfile] = useStorageState<User>(
     defaultUserProfile,
     "userProfile"
   );
   const userProfileProps = { userProfile, setUserProfile };
+  const { open } = useAppKit();
+  const { isConnected } = useAppKitAccount();
+
+  const handleConnect = () => {
+    open();
+  };
+
+  // Show landing page if wallet is not connected
+  if (!isConnected) {
+    return <LandingPage onConnect={handleConnect} />;
+  }
+
   return (
     <ThemeProvider theme={MuiTheme}>
       <MainLayout {...userProfileProps}>
         <GlobalStyle />
         <Routes>
           <Route path="/" element={<Game {...userProfileProps} />} />
-          <Route path="/about" element={<About />} />
           <Route
             path="/settings"
             element={<Settings {...userProfileProps} />}
@@ -43,6 +56,14 @@ function App() {
         />
       </MainLayout>
     </ThemeProvider>
+  );
+}
+
+function App() {
+  return (
+    <Web3Provider>
+      <AppContent />
+    </Web3Provider>
   );
 }
 export default App;

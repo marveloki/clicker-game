@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { UserProfileProps } from "../types/userProfileProps";
-import { Navbar, ProfileAvatar } from "../components";
+import { Navbar } from "../components";
 
 interface Props extends UserProfileProps {
   children: ReactNode;
@@ -13,12 +13,7 @@ export const MainLayout = ({
 }: Props) => {
   return (
     <>
-      <Navbar>
-        <ProfileAvatar
-          userProfile={userProfile}
-          setUserProfile={setUserProfile}
-        />
-      </Navbar>
+      <Navbar />
       {children}
     </>
   );
